@@ -13,7 +13,10 @@
 @theme {
     --font-sans:
         'Inter', 'Inter-var', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-    --border-color-default: var(--fgColor-default);
+    --border-color-default: var(--borderColor-default);
+    --color-default: var(--fgColor-default);
+    --color-muted: var(--fgColor-muted);
+    --color-link: var(--fgColor-link);
 }
 
 /*
