@@ -12,9 +12,7 @@
         "format": "prettier --write resources/",
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",
-        "types": "tsc --noEmit",
-        "build": "php artisan ziggy:generate && vite build",
-        "heroku-postbuild": "php artisan ziggy:generate && npm run build"
+        "types": "tsc --noEmit"
     },
     "dependencies": {
         "@inertiajs/react": "^2.0.17",
