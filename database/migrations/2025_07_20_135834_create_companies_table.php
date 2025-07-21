@@ -12,7 +12,7 @@ return new class extends Migration {
             $table->id();
             $table->string('name');
             $table->string('logo_url');
-            $table->foreignId('owner_id')->constrained()->onDelete('cascade');
+            $table->foreignId('owner_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

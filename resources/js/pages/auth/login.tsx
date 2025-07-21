@@ -3,6 +3,7 @@ import AuthLayout from '@/layouts/auth-layout';
 import { Head, useForm } from '@inertiajs/react';
 import { Button, Checkbox, FormControl, TextInput } from '@primer/react';
 import { FormEventHandler } from 'react';
+import { route } from 'ziggy-js';
 
 type LoginForm = {
     email: string;
@@ -16,7 +17,7 @@ interface LoginProps {
 }
 
 export default function Login({ status, canResetPassword }: LoginProps) {
-    const { data, setData, post, processing, errors, reset } = useForm<Required<LoginForm>>({
+    const { data, setData, post, processing, errors, reset, clearErrors } = useForm<Required<LoginForm>>({
         email: '',
         password: '',
         remember: false,
@@ -43,7 +44,10 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                 tabIndex={1}
                                 autoComplete="email"
                                 value={data.email}
-                                onChange={(e) => setData('email', e.target.value)}
+                                onChange={(e) => {
+                                    setData('email', e.target.value);
+                                    if (errors.email) clearErrors('email');
+                                }}
                                 placeholder="someone@example.com"
                                 block
                             />
@@ -57,13 +61,17 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                                 tabIndex={2}
                                 autoComplete="current-password"
                                 value={data.password}
-                                onChange={(e) => setData('password', e.target.value)}
+                                onChange={(e) => {
+                                    setData('password', e.target.value);
+                                    if (errors.password) clearErrors('password');
+                                }}
                                 placeholder="Password"
                                 block
                             />
                         </FormControl>
+                        {(errors.email || errors.password) && <div className="tw:text-sm tw:text-red-600">{errors.email || errors.password}</div>}
                     </div>
-                    <div className="tw:flex tw:items-center tw:space-x-3">
+                    <div className="tw:flex tw:items-center tw:justify-between">
                         <FormControl id="remember">
                             <FormControl.Label htmlFor="remember">Remember me</FormControl.Label>
                             <Checkbox name="remember" tabIndex={3} checked={data.remember} onClick={() => setData('remember', !data.remember)} />
@@ -73,7 +81,7 @@ export default function Login({ status, canResetPassword }: LoginProps) {
                         Continue with email
                     </Button>
                 </div>
-                <div className="tw:text-muted-foreground tw:text-center tw:text-sm">
+                <div className="tw:text-center tw:text-sm tw:text-muted">
                     Don't have an account?{' '}
                     <TextLink href="/register" tabIndex={5}>
                         Sign up
