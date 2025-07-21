@@ -53,6 +53,7 @@
 }
 
 body {
+    font-size: @apply tw:text-base !important;
     color: var(--fgColor-default);
     font-family: var(--font-sans);
     background-color: var(--bgColor-default);
