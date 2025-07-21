@@ -19,6 +19,21 @@
     --color-link: var(--fgColor-link);
 }
 
+:root {
+    --fontStack-sansSerif:
+        'Inter', 'Inter-var', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --fontStack-sansSerifDisplay:
+        'Inter', 'Inter-var', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --fontStack-system:
+        'Inter', 'Inter-var', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@supports (font-variation-settings: normal) {
+    :root {
+        font-family: InterVariable, sans-serif;
+    }
+}
+
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still
@@ -39,5 +54,6 @@
 
 body {
     color: var(--fgColor-default);
+    font-family: var(--font-sans);
     background-color: var(--bgColor-default);
 }
