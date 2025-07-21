@@ -3,7 +3,6 @@ import AuthLayout from '@/layouts/auth-layout';
 import { Head, useForm } from '@inertiajs/react';
 import { Button, FormControl, TextInput } from '@primer/react';
 import { FormEventHandler } from 'react';
-import { route } from 'ziggy-js';
 
 type RegisterForm = {
     name: string;
