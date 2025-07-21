@@ -2,14 +2,19 @@
     "$schema": "https://json.schemastore.org/package.json",
     "private": true,
     "type": "module",
+    "engines": {
+        "node": "22.x",
+        "npm": "10.x"
+    },
     "scripts": {
-        "build": "vite build",
         "build:ssr": "vite build && vite build --ssr",
         "dev": "vite",
         "format": "prettier --write resources/",
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",
-        "types": "tsc --noEmit"
+        "types": "tsc --noEmit",
+        "build": "php artisan ziggy:generate && vite build",
+        "heroku-postbuild": "php artisan ziggy:generate && npm run build"
     },
     "dependencies": {
         "@inertiajs/react": "^2.0.17",
