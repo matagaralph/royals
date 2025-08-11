@@ -36,7 +36,7 @@ function getSizeClasses(size: ButtonSize) {
     case '2xs':
       return 'h-7 px-1.5 text-3xs';
     case 'xs':
-      return 'h-8 px-3 text-3xs';
+      return 'h-8 px-3 text-sm';
     case 'sm':
       return 'h-9 px-4 text-sm';
     case 'md':
