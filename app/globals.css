@@ -1,26 +1,154 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@import '@radix-ui/colors/green.css';
+@import '@radix-ui/colors/amber.css';
+@import '@radix-ui/colors/red.css';
+@import '@radix-ui/colors/blue.css';
+@import '@radix-ui/colors/orange.css';
+@import '@radix-ui/colors/purple.css';
+@import '@radix-ui/colors/pink.css';
+@import '@radix-ui/colors/slate.css';
+
+@variant hocus (&:hover, &:focus);
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --radius: 0.625rem;
+  --background: var(--color-white);
+  --foreground: oklch(0.129 0.042 264.695);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.129 0.042 264.695);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.129 0.042 264.695);
+  --primary: oklch(0.208 0.042 265.755);
+  --primary-foreground: oklch(0.984 0.003 247.858);
+  --secondary: oklch(0.968 0.007 247.896);
+  --secondary-foreground: oklch(0.208 0.042 265.755);
+  --muted: oklch(0.968 0.007 247.896);
+  --muted-foreground: oklch(0.554 0.046 257.417);
+  --accent: oklch(0.968 0.007 247.896);
+  --accent-foreground: oklch(0.208 0.042 265.755);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.929 0.013 255.508);
+  --input: oklch(0.929 0.013 255.508);
+  --ring: oklch(0.704 0.04 256.788);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.984 0.003 247.858);
+  --sidebar-foreground: oklch(0.129 0.042 264.695);
+  --sidebar-primary: oklch(0.208 0.042 265.755);
+  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
+  --sidebar-accent: oklch(0.968 0.007 247.896);
+  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
+  --sidebar-border: oklch(0.929 0.013 255.508);
+  --sidebar-ring: oklch(0.704 0.04 256.788);
 }
-
-@theme inline {
+@theme {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--slate-11);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Borders */
+  --border-color-default: var(--slate-6);
+  --border-color-secondary: var(--slate-5);
+
+  /* Radius */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+
+  /* Light shadows */
+  --shadow-none: 0 0 transparent;
+  --shadow-xs: 0 1px 3px rgba(0, 0, 0, 0.025), 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 3px 6px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.07);
+  --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 15px 25px rgba(0, 0, 0, 0.12), 0 5px 10px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+  /* Buttons */
+  --background-color-btn-primary: var(--purple-10);
+  --border-color-btn-primary: var(--purple-10);
+  --bg-btn-primary-hover: var(--purple-11);
+  --color-btn-primary: var(--color-white);
+  --background-color-btn-primary-disabled: var(--purple-7);
+  --border-color-btn-primary-disabled: var(--purple-7);
+  --color-btn-primary-disabled: var(--color-white);
+
+  --background-color-btn-secondary: var(--color-white);
+  --border-color-btn-secondary: var(--slate-7);
+  --bg-btn-secondary-hover: var(--slate-3);
+  --color-btn-secondary: var(--slate-12);
+  --background-color-btn-secondary-disabled: var(--color-white);
+  --border-color-btn-secondary-disabled: var(--slate-6);
+  --color-btn-secondary-disabled: var(--slate-9);
+
+  --background-color-btn-tertiary: transparent;
+  --border-color-btn-tertiary: transparent;
+  --bg-btn-tertiary-hover: var(--blue-3);
+  --color-btn-tertiary: var(--blue-10);
+  --background-color-btn-tertiary-disabled: transparent;
+  --border-color-btn-tertiary-disabled: transparent;
+  --color-btn-tertiary-disabled: var(--blue-8);
+
+  --background-color-btn-quaternary: transparent;
+  --border-color-btn-quaternary: transparent;
+  --bg-btn-quaternary-hover: var(--slate-3);
+  --color-btn-quaternary: var(--slate-12);
+  --background-color-btn-quaternary-disabled: transparent;
+  --border-color-btn-quaternary-disabled: transparent;
+  --color-btn-quaternary-disabled: var(--slate-9);
+
+  --background-color-btn-primary-destructive: var(--red-10);
+  --border-color-btn-primary-destructive: var(--red-10);
+  --bg-btn-primary-destructive-hover: var(--red-11);
+  --color-btn-primary-destructive: var(--color-white);
+  --background-color-btn-primary-destructive-disabled: var(--red-7);
+  --border-color-btn-primary-destructive-disabled: var(--red-7);
+  --color-btn-primary-destructive-disabled: var(--color-white);
+
+  --background-color-btn-secondary-destructive: var(--color-white);
+  --border-color-btn-secondary-destructive: var(--red-7);
+  --bg-btn-secondary-destructive-hover: var(--red-3);
+  --color-btn-secondary-destructive: var(--red-11);
+  --background-color-btn-secondary-destructive-disabled: var(--color-white);
+  --border-color-btn-secondary-destructive-disabled: var(--red-5);
+  --color-btn-secondary-destructive-disabled: var(--red-8);
+
+  --background-color-btn-tertiary-destructive: transparent;
+  --border-color-btn-tertiary-destructive: transparent;
+  --bg-btn-tertiary-destructive-hover: var(--red-3);
+  --color-btn-tertiary-destructive: var(--red-10);
+  --background-color-btn-tertiary-destructive-disabled: transparent;
+  --border-color-btn-tertiary-destructive-disabled: transparent;
+  --color-btn-tertiary-destructive-disabled: var(--red-8);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  body {
+    @apply bg-background text-foreground;
+  }
 }
