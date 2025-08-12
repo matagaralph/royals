@@ -8,3 +8,8 @@ interface Campaign {
   min_points_per_voucher: string;
   min_spend_for_point: number;
 }
+
+interface Issuer {
+  id: number;
+  name: string;
+}

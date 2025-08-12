@@ -13,8 +13,6 @@ export function AuthForm() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(error);
-
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setIsLoading(true);

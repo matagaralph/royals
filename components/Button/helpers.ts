@@ -31,6 +31,6 @@ export function titleCase(value: string, options: Options = {}) {
     .join('');
 }
 
-function capitalize(text: string) {
+export function capitalize(text: string) {
   return text.charAt(0).toUpperCase() + text.slice(1);
 }
