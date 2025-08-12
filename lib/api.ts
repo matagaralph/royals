@@ -1,6 +1,6 @@
 import axios from 'xior';
 import { getCurrentUser } from './session';
-const baseURL = 'https://royals-8981b378f321.herokuapp.com/api';
+const baseURL = 'https://api.royals.africa';
 
 export const royalsApi = axios.create({
   baseURL,
