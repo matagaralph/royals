@@ -1,25 +1,19 @@
 'use client';
-import Link from 'next/link';
-import { BiChevronRight, BiMenu } from 'react-icons/bi';
-import { Button } from './Button';
-import { signOut, useSession } from 'next-auth/react';
-import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import { FiLogOut } from 'react-icons/fi';
-import { GoInbox, GoPerson } from 'react-icons/go';
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuPortal,
   DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { signOut, useSession } from 'next-auth/react';
+import Link from 'next/link';
+import { BiChevronRight, BiMenu } from 'react-icons/bi';
+import { FiLogOut } from 'react-icons/fi';
+import { GoInbox, GoPerson } from 'react-icons/go';
+import { Button } from './Button';
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 
 export function Header() {
   const { data: session } = useSession();

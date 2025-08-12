@@ -1,5 +1,11 @@
 import Link from 'next/link';
 import { AuthForm } from './auth-form';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Sign In',
+  description: 'Sign in to your Royals account to use the platform.',
+};
 
 export default function LoginPage() {
   return (
