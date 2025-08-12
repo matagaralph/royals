@@ -26,7 +26,7 @@ export function Header() {
             Contact US
           </Link>
           <div className='h-6 w-px bg-gray-950/10'></div>
-          <Link className='text-sm/6 text-gray-950' href='/contact'>
+          <Link className='text-sm/6 text-gray-950' href='/sign-in'>
             Sign In
           </Link>
 
