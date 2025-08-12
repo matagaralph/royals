@@ -23,7 +23,7 @@ export default async function CampaignPage({ params }: { params: Promise<{ id: s
   });
   if (!data.ok && data.status === 404) throw notFound();
 
-  const campaign = await data.json();
+  const campaign: CampaignResponse = await data.json();
   return (
     <main className='mx-auto max-w-7xl px-4 pt-6 sm:px-6 lg:px-8'>
       <Campaign campaign={campaign} user={user} />

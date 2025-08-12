@@ -13,3 +13,55 @@ interface Issuer {
   id: number;
   name: string;
 }
+
+interface Reward {
+  id: number;
+  campaign_id: number;
+  title: string;
+  description: string;
+  points_required: number;
+  created_at: string;
+  updated_at: string;
+}
+
+interface Issuer {
+  id: number;
+  name: string;
+  email: string;
+  phone: string | null;
+  role: 'issuer';
+  email_verified_at: string | null;
+  created_at: string;
+  updated_at: string;
+  pivot: {
+    [key: string]: any;
+  };
+}
+
+interface Voucher {
+  id: number;
+  campaign_id: number;
+  points_value: number;
+  code: string;
+  reference: string | null;
+  scanned_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+interface CampaignResponse {
+  id: number;
+  company_id: number;
+  name: string;
+  description: string;
+  start_date: string;
+  end_date: string;
+  min_points_per_voucher: number;
+  min_spend_for_point: number;
+  status: 'active' | 'inactive';
+  created_at: string;
+  updated_at: string;
+  rewards: Reward[];
+  issuers: Issuer[];
+  vouchers: Voucher[];
+}

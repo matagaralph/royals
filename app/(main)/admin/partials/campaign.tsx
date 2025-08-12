@@ -28,6 +28,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 import royalsApi from '@/lib/api';
 import { currencyFormatter } from '@/lib/utils';
 import { useQuery } from '@tanstack/react-query';
@@ -38,7 +46,7 @@ import { useState } from 'react';
 import { GoCalendar, GoChevronLeft, GoCreditCard, GoPersonAdd } from 'react-icons/go';
 import { toast } from 'sonner';
 
-export default function Campaign({ campaign, user }: { campaign: Campaign; user: User }) {
+export default function Campaign({ campaign, user }: { campaign: CampaignResponse; user: User }) {
   return (
     <>
       <div className='max-lg:hidden'>
@@ -87,9 +95,37 @@ export default function Campaign({ campaign, user }: { campaign: Campaign; user:
             <DescriptionDetails>10</DescriptionDetails>
             <DescriptionTerm>Assigned Issuers</DescriptionTerm>
             <DescriptionDetails>2</DescriptionDetails>
-            <DescriptionTerm>Number of rewards</DescriptionTerm>
-            <DescriptionDetails>3</DescriptionDetails>
           </DescriptionList>
+        </div>
+        <div className='mt-12'>
+          <Subheading>Rewards</Subheading>
+          <Divider className='mt-4' />
+          {campaign.rewards ? (
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableHeader>Reward ID</TableHeader>
+                  <TableHeader>Created At</TableHeader>
+                  <TableHeader>Points Required</TableHeader>
+                  <TableHeader className='relative w-0'>
+                    <span className='sr-only'>Actions</span>
+                  </TableHeader>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {campaign.rewards.map((rewared) => (
+                  <TableRow key={rewared.id}>
+                    <TableCell>{rewared.id}</TableCell>
+                    <TableCell>{format(rewared.created_at, 'yyyy-MM-dd HH:mm')}</TableCell>
+                    <TableCell>{rewared.points_required}</TableCell>
+                    <TableCell className='text-destructive cursor-pointer'>Delete</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          ) : (
+            <p className='text-center text-sm'>No rewards</p>
+          )}
         </div>
       </div>
     </>
