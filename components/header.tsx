@@ -14,6 +14,14 @@ import { FiLogOut } from 'react-icons/fi';
 import { GoInbox, GoPerson } from 'react-icons/go';
 import { Button } from './Button';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from './ui/navigation-menu';
 
 export function Header() {
   const { data: session } = useSession();
@@ -30,9 +38,29 @@ export function Header() {
           <Link className='text-sm/6 text-gray-950' href='/'>
             Home
           </Link>
-          <Link className='text-sm/6 text-gray-950' href='/blog'>
-            Campaigns
-          </Link>
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Campaigns</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className='grid w-[200px] gap-4'>
+                    <li>
+                      <NavigationMenuLink asChild>
+                        <Link href='/admin'>My Campaigns</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild>
+                        <Link href='#'>Reedem Vouchers</Link>
+                      </NavigationMenuLink>
+                      <NavigationMenuLink asChild>
+                        <Link href='#'>Verify Reward</Link>
+                      </NavigationMenuLink>
+                    </li>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+
           <Link className='text-sm/6 text-gray-950' href='/about'>
             About
           </Link>
