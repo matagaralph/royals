@@ -1,8 +1,28 @@
+'use client';
 import Link from 'next/link';
 import { BiChevronRight, BiMenu } from 'react-icons/bi';
 import { Button } from './Button';
+import { signOut, useSession } from 'next-auth/react';
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
+import { FiLogOut } from 'react-icons/fi';
+import { GoInbox, GoPerson } from 'react-icons/go';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export function Header() {
+  const { data: session } = useSession();
   return (
     <div className='border-default border-b bg-white'>
       <div className='flex h-14 items-center justify-between gap-8 px-4 sm:px-6'>
@@ -26,13 +46,56 @@ export function Header() {
             Contact US
           </Link>
           <div className='h-6 w-px bg-gray-950/10'></div>
-          <Link className='text-sm/6 text-gray-950' href='/sign-in'>
-            Sign In
-          </Link>
+          {session ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Avatar>
+                  <AvatarImage src='/avatar.png' />
+                  <AvatarFallback>CN</AvatarFallback>
+                </Avatar>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className='mr-2 w-48'>
+                <DropdownMenuLabel className='p-0 font-normal'>
+                  <div className='flex items-center gap-2 px-1 py-1.5 text-left text-sm'>
+                    <div className='grid flex-1 text-left text-sm leading-tight'>
+                      <span className='truncate font-medium'>{session.user.name}</span>
+                      <span className='text-muted-foreground truncate text-xs'>
+                        {session.user.email}
+                      </span>
+                    </div>
+                  </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem>
+                  <GoPerson />
+                  Account
+                </DropdownMenuItem>
+                <DropdownMenuItem>
+                  <GoInbox />
+                  Notifications
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem variant='destructive' onClick={() => signOut()}>
+                  <FiLogOut />
+                  Sign Out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <>
+              <Link className='text-sm/6 text-gray-950' href='/sign-in'>
+                Sign In
+              </Link>
 
-          <Button size='xs' rightSlot={<BiChevronRight className='size-4' />}>
-            Get Started
-          </Button>
+              <Button
+                size='xs'
+                className='rounded-full'
+                rightSlot={<BiChevronRight className='size-4' />}
+              >
+                Get Started
+              </Button>
+            </>
+          )}
         </div>
         <div className='flex items-center gap-2.5 md:hidden'>
           <button
