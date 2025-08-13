@@ -29,8 +29,8 @@ export function Header() {
     <div className='border-default border-b bg-white'>
       <div className='flex h-14 items-center justify-between gap-8 px-4 sm:px-6'>
         <div className='flex items-center gap-4'>
-          <Link className='flex shrink-0 gap-x-3' aria-label='Home' href='/'>
-            <img src='/favicon.svg' className='h-5' />
+          <Link className='flex shrink-0 gap-x-3 text-base font-medium' aria-label='Home' href='/'>
+            <img src='/logo.png' className='h-5' />
             Royals
           </Link>
         </div>

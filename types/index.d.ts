@@ -51,17 +51,17 @@ interface Voucher {
 
 interface CampaignResponse {
   id: number;
-  company_id: number;
   name: string;
   description: string;
-  start_date: string;
-  end_date: string;
+  company: string;
   min_points_per_voucher: number;
   min_spend_for_point: number;
+  start_date: string;
+  end_date: string;
   status: 'active' | 'inactive';
-  created_at: string;
-  updated_at: string;
-  rewards: Reward[];
-  issuers: Issuer[];
-  vouchers: Voucher[];
+  duration: number;
+  total_vouchers: number;
+  total_rewards: number;
+  users_participating: number;
+  issuers_assigned: number;
 }

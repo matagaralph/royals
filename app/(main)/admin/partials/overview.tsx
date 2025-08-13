@@ -57,7 +57,9 @@ export function Overview() {
     <>
       <div className='mb-6 flex items-center justify-between'>
         <h2 className='text-2xl font-semibold text-gray-900'>Campaigns</h2>
-        <Button leftSlot={<GoPlus className='size-4' />}>Create Campaign</Button>
+        <Button size='xs' leftSlot={<GoPlus className='size-4' />}>
+          Create Campaign
+        </Button>
       </div>
       <Table dense striped className='[--gutter:--spacing(6)] sm:[--gutter:--spacing(8)]'>
         <TableHead>
