@@ -1,7 +1,7 @@
 'use client';
 import { Button } from '@/components/Button';
 import { Input } from '@/components/ui/input';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useRef, useState, FormEvent } from 'react';
@@ -12,6 +12,7 @@ export function AuthForm() {
   const [error, setError] = useState('');
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
+  const { data: session } = useSession();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -23,7 +24,6 @@ export function AuthForm() {
       email: email,
       password: password,
       redirect: false,
-      callbackUrl: '/',
     });
 
     if (!signInResult?.ok) {
@@ -32,6 +32,7 @@ export function AuthForm() {
       return;
     }
 
+    if (session?.user.role === 'issuer' || session?.user.role === 'owner') router.replace('/admin');
     router.replace('/');
   };
 
