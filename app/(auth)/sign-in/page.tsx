@@ -14,7 +14,7 @@ export default function LoginPage() {
         <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
           <img className='mx-auto h-10 w-auto' src='./logo.png' alt='Royals' />
           <h2 className='mt-10 text-center text-2xl leading-9 font-bold tracking-tight text-slate-900'>
-            Sign in to your account
+            Log in to your account
           </h2>
         </div>
 
@@ -22,10 +22,10 @@ export default function LoginPage() {
           <AuthForm />
 
           <p className='mt-8 text-center text-sm text-slate-500'>
-            Don't have an account?
+            Don't have a Royals account yet?
             <Link
-              href='/registers'
-              className='mx-1 leading-6 font-semibold text-sky-600 hover:text-sky-500'
+              href='/register'
+              className='mx-1 leading-6 font-medium text-sky-600 hover:text-sky-500'
             >
               Get access
             </Link>

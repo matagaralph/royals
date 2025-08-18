@@ -61,7 +61,7 @@ export function AuthForm() {
             Password
           </label>
           <div className='text-sm'>
-            <Link href='/password/reset' className='font-semibold text-sky-600 hover:text-sky-500'>
+            <Link href='/password/reset' className='font-medium text-sky-600 hover:text-sky-500'>
               Forgot password?
             </Link>
           </div>
@@ -82,7 +82,7 @@ export function AuthForm() {
       </div>
 
       <div>
-        <Button type='submit' disabled={isLoading} className='w-full justify-center'>
+        <Button type='submit' disabled={isLoading} className='w-full justify-center rounded-full'>
           Sign In
         </Button>
       </div>
