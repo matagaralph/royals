@@ -6,7 +6,7 @@
     "dev": "rm -rf .next && next dev",
     "build": "next build",
     "delete": "pm2 delete royals",
-    "start": "pm2 start npm --name 'royals' -- start -- -p 3020 -H 0.0.0.0",
+    "start": "pm2 delete royals && pm2 start npm --name 'royals' -- start -- -p 3020 -H 0.0.0.0",
     "lint": "next lint",
     "format": "prettier --write ."
   },
