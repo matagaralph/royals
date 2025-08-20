@@ -22,7 +22,7 @@ export default async function CampaignPage({ params }: { params: Promise<{ id: s
   const user = await getCurrentUser();
   if (!user) redirect(authOptions.pages?.signIn || '/sign-in');
 
-  const data = await fetch(`https://api.royals.africa/campaigns/${id}`, {
+  const data = await fetch(`http://127.0.0.1:8000/campaigns/${id}`, {
     headers: {
       Authorization: `Bearer ${user?.access_token}`,
     },

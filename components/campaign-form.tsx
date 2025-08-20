@@ -15,6 +15,10 @@ import { Textarea } from '@/components/ui/textarea';
 import { useState } from 'react';
 import { GoPlus } from 'react-icons/go';
 import { Button } from './Button';
+import { useSession } from 'next-auth/react';
+import royalsApi from '@/lib/api';
+import { XiorError } from 'xior';
+import { toast } from 'sonner';
 
 interface CampaignFormData {
   name: string;
@@ -23,11 +27,14 @@ interface CampaignFormData {
   end_date: string;
   min_spend_for_point: number;
   min_points_per_voucher: number;
+  company_id?: number | null;
 }
 
 export function CampaignFormDialog() {
   const [open, setOpen] = useState(false);
+  const { data: session } = useSession();
   const [formData, setFormData] = useState<CampaignFormData>({
+    company_id: session?.user.company_id,
     name: '',
     description: '',
     start_date: '',
@@ -38,18 +45,28 @@ export function CampaignFormDialog() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Campaign data:', formData);
-    // Handle form submission here
-    setOpen(false);
-    // Reset form
-    setFormData({
-      name: '',
-      description: '',
-      start_date: '',
-      end_date: '',
-      min_spend_for_point: 0,
-      min_points_per_voucher: 0,
-    });
+    console.log(formData);
+    royalsApi
+      .post('/owner/campaigns', {
+        ...formData,
+        company_id: session?.user.company_id,
+        status: 'active',
+      })
+      .then(() => {
+        window.location.reload();
+        setFormData({
+          name: '',
+          description: '',
+          start_date: '',
+          end_date: '',
+          min_spend_for_point: 0,
+          min_points_per_voucher: 0,
+        });
+      })
+      .catch((err) => {
+        if (err instanceof XiorError) toast.error(err.response?.data.message);
+        else toast.error('Something happened try again later');
+      });
   };
 
   const updateFormData = (field: keyof CampaignFormData, value: any) => {
@@ -77,35 +94,27 @@ export function CampaignFormDialog() {
           <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
             {/* Campaign Name */}
             <div className='space-y-2'>
-              <Label htmlFor='name' className='text-foreground text-sm font-medium'>
-                Campaign Name *
-              </Label>
+              <Label htmlFor='name'>Campaign Name *</Label>
               <Input
                 id='name'
                 value={formData.name}
                 onChange={(e) => updateFormData('name', e.target.value)}
                 placeholder='Enter campaign name'
-                className='bg-input border-border focus:ring-ring'
                 required
               />
             </div>
 
-            {/* Min Spend for Point */}
             <div className='space-y-2'>
-              <Label htmlFor='min_spend' className='text-foreground text-sm font-medium'>
-                Min Spend for Point ($) *
-              </Label>
+              <Label htmlFor='min_spend'>Min Spend for Point *</Label>
               <Input
                 id='min_spend'
                 type='number'
-                min='0'
-                step='0.01'
+                min='1'
                 value={formData.min_spend_for_point}
                 onChange={(e) =>
                   updateFormData('min_spend_for_point', Number.parseFloat(e.target.value) || 0)
                 }
                 placeholder='0.00'
-                className='bg-input border-border focus:ring-ring'
                 required
               />
             </div>
@@ -113,15 +122,13 @@ export function CampaignFormDialog() {
 
           {/* Description */}
           <div className='space-y-2'>
-            <Label htmlFor='description' className='text-foreground text-sm font-medium'>
-              Description
-            </Label>
+            <Label htmlFor='description'>Description</Label>
             <Textarea
               id='description'
               value={formData.description}
               onChange={(e) => updateFormData('description', e.target.value)}
               placeholder='Describe your campaign objectives and details'
-              className='bg-input border-border focus:ring-ring min-h-[100px] resize-none'
+              className='min-h-[100px] resize-none'
               rows={4}
             />
           </div>
@@ -129,31 +136,25 @@ export function CampaignFormDialog() {
           <div className='grid grid-cols-1 gap-6 md:grid-cols-2'>
             {/* Start Date */}
             <div className='space-y-2'>
-              <Label htmlFor='start_date' className='text-foreground text-sm font-medium'>
-                Start Date *
-              </Label>
+              <Label htmlFor='start_date'>Start Date *</Label>
               <Input
                 id='start_date'
                 type='date'
                 value={formData.start_date}
                 onChange={(e) => updateFormData('start_date', e.target.value)}
-                className='bg-input border-border focus:ring-ring'
                 required
               />
             </div>
 
             {/* End Date */}
             <div className='space-y-2'>
-              <Label htmlFor='end_date' className='text-foreground text-sm font-medium'>
-                End Date *
-              </Label>
+              <Label htmlFor='end_date'>End Date *</Label>
               <Input
                 id='end_date'
                 type='date'
                 value={formData.end_date}
                 min={formData.start_date}
                 onChange={(e) => updateFormData('end_date', e.target.value)}
-                className='bg-input border-border focus:ring-ring'
                 required
               />
             </div>
@@ -161,20 +162,16 @@ export function CampaignFormDialog() {
 
           {/* Min Points per Voucher */}
           <div className='space-y-2'>
-            <Label htmlFor='min_points' className='text-foreground text-sm font-medium'>
-              Min Points per Voucher *
-            </Label>
+            <Label htmlFor='min_points'>Min Points per Voucher</Label>
             <Input
               id='min_points'
               type='number'
               min='1'
               value={formData.min_points_per_voucher}
               onChange={(e) =>
-                updateFormData('min_points_per_voucher', Number.parseInt(e.target.value) || 0)
+                updateFormData('min_points_per_voucher', Number.parseInt(e.target.value) || 1)
               }
               placeholder='Enter minimum points required'
-              className='bg-input border-border focus:ring-ring max-w-xs'
-              required
             />
           </div>
 

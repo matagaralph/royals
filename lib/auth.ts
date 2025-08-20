@@ -47,6 +47,7 @@ export const authOptions: NextAuthOptions = {
           access_token: token.access_token,
           role: token.role,
           user_id: token.user_id,
+          company_id: token.company_id,
         },
       };
     },
@@ -57,6 +58,7 @@ export const authOptions: NextAuthOptions = {
           access_token: user?.access_token,
           role: user.role,
           user_id: user.id,
+          company_id: user.company_id,
         };
       }
       return token;

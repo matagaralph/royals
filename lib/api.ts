@@ -1,6 +1,6 @@
 import axios from 'xior';
 import { getCurrentUser } from './session';
-const baseURL = 'https://api.royals.africa';
+const baseURL = 'http://127.0.0.1:8000';
 
 export const royalsApi = axios.create({
   baseURL,
