@@ -1,5 +1,6 @@
 'use client';
 import { Button } from '@/components/Button';
+import { CampaignFormDialog } from '@/components/campaign-form';
 import { Badge } from '@/components/ui/badge';
 import {
   Table,
@@ -57,9 +58,7 @@ export function Overview() {
     <>
       <div className='mb-6 flex items-center justify-between'>
         <h2 className='text-2xl font-semibold text-gray-900'>Campaigns</h2>
-        <Button size='xs' leftSlot={<GoPlus className='size-4' />}>
-          Create Campaign
-        </Button>
+        <CampaignFormDialog />
       </div>
       <Table dense striped className='[--gutter:--spacing(6)] sm:[--gutter:--spacing(8)]'>
         <TableHead>
