@@ -6,15 +6,15 @@ const navigation = {
     { name: 'Support', href: '/support' },
     { name: 'Manage Campaigns', href: '/admin' },
     { name: 'My Rewards', href: '/shopper' },
-    { name: 'Reedem Voucher', href: '/issue-vouchers' },
-    { name: 'Verify Reward', href: '/verify-reward' },
+    { name: 'Reedem Voucher', href: 'admin/issue-vouchers' },
+    { name: 'Verify Reward', href: 'admin/verify-reward' },
   ],
 };
 
 export function Footer() {
   return (
     <footer className='bg-white'>
-      <div className='mx-auto max-w-7xl overflow-hidden px-4 lg:px-8'>
+      <div className='mx-auto max-w-7xl overflow-hidden px-4 pb-8 lg:px-8'>
         <nav
           className='-mb-6 columns-2 sm:flex sm:justify-center sm:space-x-12'
           aria-label='Footer'

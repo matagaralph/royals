@@ -5,7 +5,7 @@ import { ChevronRight, Mail, MessageCircle } from 'lucide-react';
 export default function ContactUsPage() {
   return (
     <>
-      <section className='bg-white px-4 py-24'>
+      <section className='bg-white px-4 py-8 lg:py-24'>
         <div className='mx-auto max-w-4xl text-center'>
           <h2 className='mb-6 text-5xl font-semibold text-slate-900'>How can we help?</h2>
 
