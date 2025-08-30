@@ -27,5 +27,6 @@ class RolesAndAbilitiesSeeder extends Seeder {
             'name' => 'shopper',
             'title' => 'Customer',
         ]);
+
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Schema;
 return new class extends Migration {
 
     public function up(): void {
-        
+
         Schema::create('users', function (Blueprint $table) {
             $table->ulid('id')->primary();
             $table->string('name');
@@ -15,7 +15,6 @@ return new class extends Migration {
             $table->string('phone')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('role')->default('user');
             $table->foreignUlid('company_id')->nullable()->constrained('companies')->nullOnDelete();
             $table->rememberToken();
             $table->timestamps();
