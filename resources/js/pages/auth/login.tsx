@@ -11,13 +11,21 @@ export default function Login() {
                     <div>
                         <FormControl required>
                             <FormControl.Label>Email</FormControl.Label>
-                            <TextInput block placeholder="name@domain.com" />
+                            <TextInput
+                                className="tw:!h-9"
+                                block
+                                placeholder="name@domain.com"
+                            />
                         </FormControl>
                     </div>
                     <div>
                         <FormControl required>
                             <FormControl.Label>Password</FormControl.Label>
-                            <TextInput block placeholder="Password" />
+                            <TextInput
+                                className="tw:!h-9"
+                                block
+                                placeholder="Password"
+                            />
                         </FormControl>
                     </div>
 
