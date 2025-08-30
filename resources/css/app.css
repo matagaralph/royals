@@ -1,7 +1,7 @@
 @layer theme, base, components, utilities;
 @import "tailwindcss/theme.css" layer(theme) prefix(tw);
 @import "tailwindcss/utilities.css" layer(utilities) prefix(tw);
-@import '@primer/primitives/dist/css/functional/themes/light.css';
+@import "@primer/primitives/dist/css/functional/themes/light.css";
 
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 @source '../../storage/framework/views/*.php';
@@ -9,17 +9,33 @@
 @source '../**/*.js';
 
 @theme {
-    --font-sans: "Inter", "InterVariable", "Inter-var", ui-sans-serif, system-ui, sans-serif;
+    --font-sans:
+        "Inter", "InterVariable", "Inter-var", ui-sans-serif, system-ui,
+        sans-serif;
 }
 
 :root {
     font-family: Inter, sans-serif;
-    font-feature-settings: "liga" 1,
-    "calt" 1; /* fix for Chrome */
+    font-feature-settings:
+        "liga" 1,
+        "calt" 1; /* fix for Chrome */
+    --fontStack-system:
+        "Inter", "InterVariable", "Inter-var", ui-sans-serif, system-ui,
+        sans-serif !important;
+    --fontStack-sansSerif:
+        "Inter", "InterVariable", "Inter-var", ui-sans-serif, system-ui,
+        sans-serif !important;
+    --text-display-size: 16px;
+    --text-body-size-small: 14px;
 }
 
 @supports (font-variation-settings: normal) {
     :root {
         font-family: InterVariable, sans-serif;
     }
+}
+
+body {
+    color: var(--fgColor-default);
+    background-color: var(--bgColor-default);
 }
