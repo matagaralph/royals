@@ -9,7 +9,7 @@ export default function Welcome() {
                 <link rel="preconnect" href="https://rsms.me/" />
                 <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
             </Head>
-            <div className="tw:!m-0 tw:flex tw:min-h-screen tw:flex-col">
+            <div className="tw:!m-0 tw:flex tw:min-h-screen tw:flex-col tw:!font-sans">
                 <ThemeProvider>
                     <header className="tw:h-14 tw:border-b tw:border-b-red-500"></header>
                     <main className="tw:mx-auto tw:max-w-7xl tw:px-4 tw:pt-8">
