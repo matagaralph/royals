@@ -29,7 +29,7 @@ class AuthenticatedSessionController extends Controller {
         $request->authenticate();
         $request->session()->regenerate();
         $userRole = $request->user()->getRoleNames()->first();
-        return redirect()->intended(route($userRole === 'shopper' ? 'ma' : 'campaigns', absolute: false));
+        return redirect()->intended(route($userRole === 'shopper' ? 'ma' : 'admin', absolute: false));
     }
 
     /**

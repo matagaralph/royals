@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 export function RootLayout({ children }: { children: ReactNode }) {
     return (
         <ThemeProvider>
-            <header className="tw:h-14 tw:border-b tw:border-b-[var(--borderColor-default)]"></header>
+            <header className="tw:flex tw:h-14 tw:items-center tw:justify-between tw:border-b tw:border-b-[var(--borderColor-default)] tw:bg-white tw:px-4"></header>
             {children}
         </ThemeProvider>
     );

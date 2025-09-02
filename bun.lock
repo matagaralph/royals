@@ -4,8 +4,10 @@
     "": {
       "dependencies": {
         "@inertiajs/react": "^2.1.0",
+        "@primer/octicons-react": "^19.16.0",
         "@primer/primitives": "^11.1.0",
         "@primer/react": "^37.31.0",
+        "@primer/react-brand": "^0.57.2",
         "@tailwindcss/vite": "^4.1.11",
         "@types/react": "^19.0.3",
         "@types/react-dom": "^19.0.2",
@@ -212,6 +214,8 @@
     "@primer/primitives": ["@primer/primitives@11.1.0", "", {}, "sha512-edsofzVG67EobXGRrqFc/kfjzKh8wbq1wEmRc1vmRNqDJNMxBRWZ9bT2AzKvcv+Hbf7olDAPkrSqVHbO4hhr/A=="],
 
     "@primer/react": ["@primer/react@37.31.0", "", { "dependencies": { "@github/relative-time-element": "^4.4.5", "@github/tab-container-element": "4.8.2", "@lit-labs/react": "1.2.1", "@oddbird/popover-polyfill": "^0.5.2", "@primer/behaviors": "^1.8.0", "@primer/live-region-element": "^0.7.1", "@primer/octicons-react": "^19.13.0", "@primer/primitives": "10.x || 11.x", "@styled-system/css": "^5.1.5", "@styled-system/props": "^5.1.5", "@styled-system/theme-get": "^5.1.2", "@types/styled-system": "^5.1.23", "@types/styled-system__css": "^5.0.16", "@types/styled-system__theme-get": "^5.0.1", "clsx": "^2.1.1", "color2k": "^2.0.3", "deepmerge": "^4.3.1", "focus-visible": "^5.2.1", "history": "^5.0.0", "hsluv": "1.0.1", "lodash.isempty": "^4.4.0", "lodash.isobject": "^3.0.2", "react-compiler-runtime": "^19.1.0-rc.2", "react-intersection-observer": "^9.16.0", "styled-system": "^5.1.5", "type-check": "0.4.0" }, "peerDependencies": { "@types/react": "18.x || 19.x", "@types/react-dom": "18.x || 19.x", "@types/react-is": "18.x || 19.x", "@types/styled-components": "^5.1.11", "react": "18.x || 19.x", "react-dom": "18.x || 19.x", "react-is": "18.x || 19.x", "styled-components": "5.x" }, "optionalPeers": ["@types/react", "@types/react-dom", "@types/react-is", "@types/styled-components"] }, "sha512-sK+/Ggy05yg3TaFdJRfEmRuaZBsmFD5P7nH1qyVqO9OeT8o2jnqnlBhef8TYX0gpNrLwWNcVrIIOP2Em6T6rrA=="],
+
+    "@primer/react-brand": ["@primer/react-brand@0.57.2", "", { "dependencies": { "@oddbird/popover-polyfill": "0.5.2", "@primer/behaviors": "^1.8.2" }, "peerDependencies": { "@types/react": ">=18 <20", "@types/react-dom": ">=18 <20", "react": ">=18 <20", "react-dom": ">=18 <20" }, "optionalPeers": ["@types/react", "@types/react-dom"] }, "sha512-OGlRgNvZik/fIcvUbWLWDdtKIdn5f/sOxt0DRiQKoMb3ZN8PffyFGXS5OULSBl+FlA730EdDV8Ai2OS15lqj8A=="],
 
     "@rolldown/pluginutils": ["@rolldown/pluginutils@1.0.0-beta.27", "", {}, "sha512-+d0F4MKMCbeVUJwG96uQ4SgAznZNSq93I3V+9NHA4OpvqG8mRCpGdKmK8l/dl02h2CCDHwW2FqilnTyDcAnqjA=="],
 
