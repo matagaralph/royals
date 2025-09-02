@@ -1,11 +1,8 @@
-import { Form, Head } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
-
+import { Input } from '@/components/input';
 import InputError from '@/components/input-error';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import AuthLayout from '@/layouts/auth-layout';
+import AuthLayout from '@/layouts/auth/layout';
+import { Form, Head } from '@inertiajs/react';
+import { Button, FormControl } from '@primer/react';
 
 interface ResetPasswordProps {
     token: string;
@@ -24,42 +21,48 @@ export default function ResetPassword({ token, email }: ResetPasswordProps) {
                 resetOnSuccess={['password', 'password_confirmation']}
             >
                 {({ processing, errors }) => (
-                    <div className="grid gap-6">
-                        <div className="grid gap-2">
-                            <Label htmlFor="email">Email</Label>
-                            <Input id="email" type="email" name="email" autoComplete="email" value={email} className="mt-1 block w-full" readOnly />
+                    <div className="tw:grid tw:gap-6">
+                        <div className="tw:grid tw:gap-2">
+                            <FormControl>
+                                <FormControl.Label>Email</FormControl.Label>
+                                <Input block type="email" name="email" autoComplete="email" value={email} className="tw:mt-1" disabled />
+                            </FormControl>
                             <InputError message={errors.email} className="mt-2" />
                         </div>
 
-                        <div className="grid gap-2">
-                            <Label htmlFor="password">Password</Label>
-                            <Input
-                                id="password"
-                                type="password"
-                                name="password"
-                                autoComplete="new-password"
-                                className="mt-1 block w-full"
-                                autoFocus
-                                placeholder="Password"
-                            />
+                        <div className="tw:grid tw:gap-2">
+                            <FormControl>
+                                <FormControl.Label>Password</FormControl.Label>
+                                <Input
+                                    block
+                                    type="password"
+                                    name="password"
+                                    autoComplete="new-password"
+                                    className="tw:mt-1"
+                                    autoFocus
+                                    placeholder="Password"
+                                />
+                            </FormControl>
                             <InputError message={errors.password} />
                         </div>
 
-                        <div className="grid gap-2">
-                            <Label htmlFor="password_confirmation">Confirm password</Label>
-                            <Input
-                                id="password_confirmation"
-                                type="password"
-                                name="password_confirmation"
-                                autoComplete="new-password"
-                                className="mt-1 block w-full"
-                                placeholder="Confirm password"
-                            />
+                        <div className="tw:grid tw:gap-2">
+                            <FormControl>
+                                <FormControl.Label>Confirm password</FormControl.Label>
+                                <Input
+                                    block
+                                    id="password_confirmation"
+                                    type="password"
+                                    name="password_confirmation"
+                                    autoComplete="new-password"
+                                    className="mt-1 block w-full"
+                                    placeholder="Confirm password"
+                                />
+                            </FormControl>
                             <InputError message={errors.password_confirmation} className="mt-2" />
                         </div>
 
-                        <Button type="submit" className="mt-4 w-full" disabled={processing}>
-                            {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                        <Button variant="primary" type="submit" className="tw:mt-4 tw:w-full" disabled={processing} loading={processing}>
                             Reset password
                         </Button>
                     </div>

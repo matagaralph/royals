@@ -1,12 +1,8 @@
-import { Form, Head } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
-
+import { Input } from '@/components/input';
 import InputError from '@/components/input-error';
-import TextLink from '@/components/text-link';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import AuthLayout from '@/layouts/auth-layout';
+import AuthLayout from '@/layouts/auth/layout';
+import { Form, Head, Link } from '@inertiajs/react';
+import { Button, FormControl } from '@primer/react';
 
 export default function Register() {
     return (
@@ -17,79 +13,91 @@ export default function Register() {
                 action={route('register')}
                 resetOnSuccess={['password', 'password_confirmation']}
                 disableWhileProcessing
-                className="flex flex-col gap-6"
+                className="tw:flex tw:flex-col tw:gap-6"
             >
                 {({ processing, errors }) => (
                     <>
-                        <div className="grid gap-6">
-                            <div className="grid gap-2">
-                                <Label htmlFor="name">Name</Label>
-                                <Input
-                                    id="name"
-                                    type="text"
-                                    required
-                                    autoFocus
-                                    tabIndex={1}
-                                    autoComplete="name"
-                                    name="name"
-                                    placeholder="Full name"
-                                />
+                        <div className="tw:grid tw:gap-6">
+                            <div className="tw:grid tw:gap-2">
+                                <FormControl>
+                                    <FormControl.Label>Name</FormControl.Label>
+                                    <Input
+                                        block
+                                        id="name"
+                                        type="text"
+                                        required
+                                        autoFocus
+                                        tabIndex={1}
+                                        autoComplete="name"
+                                        name="name"
+                                        placeholder="Full name"
+                                    />
+                                </FormControl>
                                 <InputError message={errors.name} className="mt-2" />
                             </div>
 
-                            <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
-                                <Input
-                                    id="email"
-                                    type="email"
-                                    required
-                                    tabIndex={2}
-                                    autoComplete="email"
-                                    name="email"
-                                    placeholder="email@example.com"
-                                />
+                            <div className="tw:grid tw:gap-2">
+                                <FormControl>
+                                    <FormControl.Label>Email address</FormControl.Label>
+                                    <Input
+                                        block
+                                        id="email"
+                                        type="email"
+                                        required
+                                        tabIndex={2}
+                                        autoComplete="email"
+                                        name="email"
+                                        placeholder="email@example.com"
+                                    />
+                                </FormControl>
                                 <InputError message={errors.email} />
                             </div>
 
-                            <div className="grid gap-2">
-                                <Label htmlFor="password">Password</Label>
-                                <Input
-                                    id="password"
-                                    type="password"
-                                    required
-                                    tabIndex={3}
-                                    autoComplete="new-password"
-                                    name="password"
-                                    placeholder="Password"
-                                />
+                            <div className="tw:grid tw:gap-2">
+                                <FormControl>
+                                    <FormControl.Label>New Password</FormControl.Label>
+                                    <Input
+                                        block
+                                        id="password"
+                                        type="password"
+                                        required
+                                        tabIndex={3}
+                                        autoComplete="new-password"
+                                        name="password"
+                                        placeholder="Password"
+                                    />
+                                </FormControl>
                                 <InputError message={errors.password} />
                             </div>
 
-                            <div className="grid gap-2">
-                                <Label htmlFor="password_confirmation">Confirm password</Label>
-                                <Input
-                                    id="password_confirmation"
-                                    type="password"
-                                    required
-                                    tabIndex={4}
-                                    autoComplete="new-password"
-                                    name="password_confirmation"
-                                    placeholder="Confirm password"
-                                />
+                            <div className="tw:grid tw:gap-2">
+                                <FormControl>
+                                    <FormControl.Label>Password confirmation</FormControl.Label>
+                                    <Input
+                                        block
+                                        id="password_confirmation"
+                                        type="password"
+                                        required
+                                        tabIndex={4}
+                                        autoComplete="new-password"
+                                        name="password_confirmation"
+                                        placeholder="Confirm password"
+                                    />
+                                </FormControl>
+
                                 <InputError message={errors.password_confirmation} />
                             </div>
 
-                            <Button type="submit" className="mt-2 w-full" tabIndex={5}>
-                                {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                            <Button type="submit" loading={processing} variant="primary" className="tw:mt-2" tabIndex={5}>
                                 Create account
                             </Button>
                         </div>
 
-                        <div className="text-center text-sm text-muted-foreground">
-                            Already have an account?{' '}
-                            <TextLink href={route('login')} tabIndex={6}>
+                        <div className="tw:text-center tw:text-sm tw:text-[var(--fgColor-muted)]">
+                            Already have an account?
+                            <Link className="tw:mx-1" href={route('login')} tabIndex={6}>
                                 Log in
-                            </TextLink>
+                            </Link>
                         </div>
                     </>
                 )}

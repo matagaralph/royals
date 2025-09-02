@@ -1,35 +1,31 @@
 // Components
-import { Form, Head } from '@inertiajs/react';
-import { LoaderCircle } from 'lucide-react';
-
+import { Input } from '@/components/input';
 import InputError from '@/components/input-error';
-import TextLink from '@/components/text-link';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import AuthLayout from '@/layouts/auth-layout';
+import AuthLayout from '@/layouts/auth/layout';
+import { Form, Head, Link } from '@inertiajs/react';
+import { Button, FormControl } from '@primer/react';
 
 export default function ForgotPassword({ status }: { status?: string }) {
     return (
         <AuthLayout title="Forgot password" description="Enter your email to receive a password reset link">
             <Head title="Forgot password" />
 
-            {status && <div className="mb-4 text-center text-sm font-medium text-green-600">{status}</div>}
+            {status && <div className="tw:mb-2 tw:text-center tw:text-sm tw:font-medium tw:text-[var(--fgColor-success)]">{status}</div>}
 
-            <div className="space-y-6">
+            <div className="tw:space-y-6">
                 <Form method="post" action={route('password.email')}>
                     {({ processing, errors }) => (
                         <>
-                            <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
-                                <Input id="email" type="email" name="email" autoComplete="off" autoFocus placeholder="email@example.com" />
-
+                            <div className="tw:grid tw:gap-2">
+                                <FormControl>
+                                    <FormControl.Label>Email address</FormControl.Label>
+                                    <Input block type="email" name="email" autoComplete="off" autoFocus placeholder="email@example.com" />
+                                </FormControl>
                                 <InputError message={errors.email} />
                             </div>
 
-                            <div className="my-6 flex items-center justify-start">
-                                <Button className="w-full" disabled={processing}>
-                                    {processing && <LoaderCircle className="h-4 w-4 animate-spin" />}
+                            <div className="tw:my-6 tw:flex tw:items-center tw:justify-start">
+                                <Button variant="primary" type="submit" block disabled={processing} loading={processing}>
                                     Email password reset link
                                 </Button>
                             </div>
@@ -37,9 +33,9 @@ export default function ForgotPassword({ status }: { status?: string }) {
                     )}
                 </Form>
 
-                <div className="space-x-1 text-center text-sm text-muted-foreground">
+                <div className="text-[var(--fgColor-muted)] tw:space-x-1 tw:text-center tw:text-sm">
                     <span>Or, return to</span>
-                    <TextLink href={route('login')}>log in</TextLink>
+                    <Link href={route('login')}>log in</Link>
                 </div>
             </div>
         </AuthLayout>
