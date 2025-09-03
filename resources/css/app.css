@@ -14,13 +14,16 @@
 
 :root {
     font-family: Inter, sans-serif;
-    font-feature-settings:
-        'liga' 1,
-        'calt' 1; /* fix for Chrome */
+    font-feature-settings: 'liga' 1,
+    'calt' 1; /* fix for Chrome */
     --fontStack-system: 'Inter', 'InterVariable', 'Inter-var', ui-sans-serif, system-ui, sans-serif !important;
     --fontStack-sansSerif: 'Inter', 'InterVariable', 'Inter-var', ui-sans-serif, system-ui, sans-serif !important;
     --text-display-size: 16px;
     --text-body-size-small: 14px;
+    --brand-fontStack-sansSerif: var(--fontStack-sansSerif);
+    --brand-fontStack-system: var(--fontStack-system);
+    --brand-body-fontFamily: var(--fontStack-sansSerif);
+    --brand-fontStack-sansSerifAlt: var(--fontStack-system);
 }
 
 @supports (font-variation-settings: normal) {
