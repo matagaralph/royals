@@ -1,6 +1,8 @@
 import { Head } from '@inertiajs/react';
-import { FAQ, SectionIntroStacked, Text, ThemeProvider } from '@primer/react-brand';
+import { CopilotIcon } from '@primer/octicons-react';
+import { FAQ, Pillar, SectionIntroStacked, Stack, Text, ThemeProvider } from '@primer/react-brand';
 import '@primer/react-brand/lib/css/main.css';
+import { GitBranchIcon, RocketIcon } from 'lucide-react';
 
 export default function Welcome() {
     return (
@@ -11,32 +13,56 @@ export default function Welcome() {
             </Head>
             <div className="tw:!m-0 tw:flex tw:min-h-screen tw:flex-col tw:!font-sans">
                 <ThemeProvider>
-                    <header className="tw:h-14 tw:border-b tw:border-b-red-500"></header>
+                    <header className="tw:h-14 tw:border-b tw:border-b-[#AFB8C1]"></header>
                     <main className="tw:mx-auto tw:max-w-7xl tw:px-4 tw:pt-8">
-                        <section>
+                        <section className="tw:!font-sans">
                             <SectionIntroStacked>
                                 <SectionIntroStacked.Heading>
-                                    <b>Over 90% of Fortune 100 companies and more than 150 million developers rely on GitHub</b> to deliver scalable,
-                                    reliable, and secure solutions for teams of all sizes.
+                                    <b>Your members earn points effortlessly when they shop</b>, unlocking exclusive rewards and experiences from
+                                    their favorite brands
                                 </SectionIntroStacked.Heading>
-                                <SectionIntroStacked.Link href="#">Explore GitHub</SectionIntroStacked.Link>
+                                <SectionIntroStacked.Link href="#">Explore Royals</SectionIntroStacked.Link>
                                 <SectionIntroStacked.Items>
                                     <SectionIntroStacked.Item>
-                                        <b>Designed for developers</b>, GitHub offers seamless collaboration tools that make teamwork smarter, faster,
-                                        and more secure.
+                                        <b>Designed for customers</b>, Royals offers a seamless loyalty platform that makes earning rewards smarter,
+                                        faster, and more secure.
                                     </SectionIntroStacked.Item>
                                     <SectionIntroStacked.Item>
-                                        <b>Leverage GitHub Copilot to automate tasks</b>, and enhance productivity with smart, context-aware code
-                                        suggestions.
+                                        <b>Leverage the Royals</b> platform to automate rewards, and enhance engagement with smart, context-aware
+                                        offers.
                                     </SectionIntroStacked.Item>
                                     <SectionIntroStacked.Item>
-                                        <b>GitHub Enterprise scales with your organization</b>, delivering the performance and security needed for
-                                        teams of any size.
+                                        <b>Royals Enterprise</b> scales with your business, delivering the performance and security needed for brands
+                                        of any size.
                                     </SectionIntroStacked.Item>
                                 </SectionIntroStacked.Items>
                             </SectionIntroStacked>
                         </section>
-
+                        <section className="tw:!py-12 tw:sm:!py-24">
+                            <Stack direction="horizontal" alignItems="center" justifyContent="center" gap="normal">
+                                <Pillar>
+                                    <Pillar.Icon icon={<CopilotIcon />} color="blue" />
+                                    <Pillar.Heading>Uniquely yours</Pillar.Heading>
+                                    <Pillar.Description>
+                                        Custom loyalty programs that adapt to your business needs, from VIP experiences to flexible earning rules.
+                                    </Pillar.Description>
+                                </Pillar>
+                                <Pillar>
+                                    <Pillar.Icon icon={<RocketIcon />} color="blue" />
+                                    <Pillar.Heading>Advanced Reporting</Pillar.Heading>
+                                    <Pillar.Description>
+                                        Loyalty benchmarks, program performance, and all the reports your finance team needs.
+                                    </Pillar.Description>
+                                </Pillar>
+                                <Pillar>
+                                    <Pillar.Icon icon={<GitBranchIcon />} color="blue" />
+                                    <Pillar.Heading>Contactless stamping</Pillar.Heading>
+                                    <Pillar.Description>
+                                        Eradicates the need for physical cards; promoting hygiene and safety. No more manual punch counting.
+                                    </Pillar.Description>
+                                </Pillar>
+                            </Stack>
+                        </section>
                         <FAQ className="tw:!my-12">
                             <FAQ.Heading>Frequently asked questions</FAQ.Heading>
                             <FAQ.Item>
