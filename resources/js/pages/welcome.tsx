@@ -1,8 +1,8 @@
+import FAQ from '@/components/home/faq';
 import { Head } from '@inertiajs/react';
-import { CopilotIcon } from '@primer/octicons-react';
-import { FAQ, Pillar, SectionIntroStacked, Stack, Text, ThemeProvider } from '@primer/react-brand';
+import { SectionIntroStacked, ThemeProvider } from '@primer/react-brand';
 import '@primer/react-brand/lib/css/main.css';
-import { GitBranchIcon, RocketIcon } from 'lucide-react';
+import Footer from '@/components/home/footer';
 
 export default function Welcome() {
     return (
@@ -38,104 +38,9 @@ export default function Welcome() {
                                 </SectionIntroStacked.Items>
                             </SectionIntroStacked>
                         </section>
-                        <section className="tw:!py-12 tw:sm:!py-24">
-                            <Stack direction="horizontal" alignItems="center" justifyContent="center" gap="normal">
-                                <Pillar>
-                                    <Pillar.Icon icon={<CopilotIcon />} color="blue" />
-                                    <Pillar.Heading>Uniquely yours</Pillar.Heading>
-                                    <Pillar.Description>
-                                        Custom loyalty programs that adapt to your business needs, from VIP experiences to flexible earning rules.
-                                    </Pillar.Description>
-                                </Pillar>
-                                <Pillar>
-                                    <Pillar.Icon icon={<RocketIcon />} color="blue" />
-                                    <Pillar.Heading>Advanced Reporting</Pillar.Heading>
-                                    <Pillar.Description>
-                                        Loyalty benchmarks, program performance, and all the reports your finance team needs.
-                                    </Pillar.Description>
-                                </Pillar>
-                                <Pillar>
-                                    <Pillar.Icon icon={<GitBranchIcon />} color="blue" />
-                                    <Pillar.Heading>Contactless stamping</Pillar.Heading>
-                                    <Pillar.Description>
-                                        Eradicates the need for physical cards; promoting hygiene and safety. No more manual punch counting.
-                                    </Pillar.Description>
-                                </Pillar>
-                            </Stack>
-                        </section>
-                        <FAQ className="tw:!my-12">
-                            <FAQ.Heading>Frequently asked questions</FAQ.Heading>
-                            <FAQ.Item>
-                                <FAQ.Question>What&apos;s included in the GitHub for Startups offer?</FAQ.Question>
-                                <FAQ.Answer>
-                                    <p>
-                                        All GitHub for Startups companies receive up to 20 seats of GitHub Enterprise for free for year one and 50%
-                                        off year two. Learn more about the features and capabilities of GitHub Enterprise{' '}
-                                        <a href="https://www.github.com" target="_blank" rel="noreferrer">
-                                            here
-                                        </a>
-                                        .
-                                    </p>
-                                </FAQ.Answer>
-                            </FAQ.Item>
-                            <FAQ.Item>
-                                <FAQ.Question>Who is eligible to apply?</FAQ.Question>
-                                <FAQ.Answer>
-                                    <p>Startups who meet the following criteria are eligible to apply for the program:</p>
-                                    <ol>
-                                        <li>
-                                            <Text size="300" variant="muted">
-                                                Must be associated with a current GitHub for Startups partner.
-                                            </Text>
-                                        </li>
-                                        <li>
-                                            <Text size="300" variant="muted">
-                                                Self-funded or funded (Seed-Series A)
-                                            </Text>
-                                        </li>
-                                        <li>
-                                            <Text size="300" variant="muted">
-                                                Not a current GitHub Enterprise customer
-                                            </Text>
-                                        </li>
-                                        <li>
-                                            <Text size="300" variant="muted">
-                                                Must not have previously received credits for GitHub Enterprise
-                                            </Text>
-                                        </li>
-                                    </ol>
-                                </FAQ.Answer>
-                            </FAQ.Item>
-                            <FAQ.Item>
-                                <FAQ.Question>What if my startup is not eligible? Are there other resources for me?</FAQ.Question>
-                                <FAQ.Answer>
-                                    <p>
-                                        If you’re not currently eligible for the GitHub for Startups but would like to try GitHub Enterprise, please
-                                        feel to sign up for a trial
-                                        <a href="https://www.github.com" target="_blank" rel="noreferrer">
-                                            here
-                                        </a>
-                                        {''}.
-                                    </p>
-                                </FAQ.Answer>
-                            </FAQ.Item>
-                            <FAQ.Item>
-                                <FAQ.Question>How can my organization become a GitHub for Startups partner?</FAQ.Question>
-                                <FAQ.Answer>
-                                    <p>
-                                        Any investor, accelerator, or startup support organization is eligible to apply for the GitHub for Startups
-                                        program.
-                                    </p>
-                                    <p>
-                                        <a href="https://www.github.com" target="_blank" rel="noreferrer">
-                                            Apply here
-                                        </a>
-                                        .
-                                    </p>
-                                </FAQ.Answer>
-                            </FAQ.Item>
-                        </FAQ>
                     </main>
+                    <FAQ />
+                    <Footer />
                 </ThemeProvider>
             </div>
         </>
