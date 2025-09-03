@@ -1,8 +1,7 @@
 import FAQ from '@/components/home/faq';
 import { Head } from '@inertiajs/react';
-import { SectionIntroStacked, ThemeProvider } from '@primer/react-brand';
+import { Button, SectionIntroStacked, ThemeProvider } from '@primer/react-brand';
 import '@primer/react-brand/lib/css/main.css';
-import Footer from '@/components/home/footer';
 
 export default function Welcome() {
     return (
@@ -14,6 +13,36 @@ export default function Welcome() {
             <div className="tw:!m-0 tw:flex tw:min-h-screen tw:flex-col tw:!font-sans">
                 <ThemeProvider>
                     <header className="tw:h-14 tw:border-b tw:border-b-[#AFB8C1]"></header>
+                    <div className="tw:mx-auto tw:max-w-7xl tw:px-6 tw:pt-16 tw:pb-24 tw:sm:pb-32 tw:lg:flex tw:lg:px-8">
+                        <div className="tw:mx-auto tw:max-w-2xl tw:lg:mx-0 tw:lg:max-w-xl tw:lg:flex-shrink-0">
+                            <h1 className="tw:mt-10 tw:text-4xl tw:font-bold tw:tracking-tight tw:text-gray-900 tw:sm:text-6xl">
+                                Turn loyal customers into brand advocates
+                            </h1>
+                            <p className="tw:!mt-6 tw:text-lg tw:leading-8 tw:text-slate-600">
+                                Getting more repeat purchases isn’t the only benefit of using Royals for loyalty. Enjoy the added bonus of acquiring
+                                new customers efficiently when shoppers refer their friends to your brand.
+                            </p>
+                            <div className="tw:mt-10 tw:flex tw:items-center tw:gap-x-6">
+                                <Button variant="subtle">Get Started</Button>
+                            </div>
+                        </div>
+
+                        {/* Image wrapper */}
+                        <div className="tw:mx-auto tw:mt-16 tw:flex tw:max-w-full tw:overflow-hidden tw:sm:mt-24 tw:lg:mt-0 tw:lg:mr-0 tw:lg:ml-10 tw:lg:flex-none tw:xl:ml-32">
+                            <div className="tw:w-full tw:flex-none">
+                                <div className="tw:p-2 tw:lg:p-4">
+                                    <img
+                                        alt="App screenshot"
+                                        loading="lazy"
+                                        className="tw:mx-auto tw:block tw:h-auto tw:max-w-full"
+                                        style={{ color: 'transparent' }}
+                                        src="https://smile.io/_next/static/media/hero.9eacaeba.svg"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                     <main className="tw:mx-auto tw:max-w-7xl tw:px-4 tw:pt-8">
                         <section className="tw:!font-sans">
                             <SectionIntroStacked>
@@ -40,7 +69,6 @@ export default function Welcome() {
                         </section>
                     </main>
                     <FAQ />
-                    <Footer />
                 </ThemeProvider>
             </div>
         </>
